@@ -17,7 +17,8 @@
             EmailKey = "email", 
             BirthDateKey = "birth_date", 
             PwdKey = "pwd", 
-            RegisteredKey = "registered";
+            RegisteredKey = "registered",
+            ImagePathKey = "image_path";
 
     }
 }

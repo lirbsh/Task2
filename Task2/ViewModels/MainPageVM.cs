@@ -2,11 +2,12 @@
 using Task2.ModelsLogic;
 using Task2.Utilities;
 using System.Windows.Input;
+using Task2.Views;
 namespace Task2.ViewModels;
 
 internal partial class MainPageVM:ObservableObject
 {
-    private readonly UserModel user;
+    private readonly User user;
 
     public ICommand ActionCommand { get; private set; }
     public bool IsUserValid { get => user.IsValid; }
@@ -87,18 +88,19 @@ internal partial class MainPageVM:ObservableObject
         if (IsUserValid)
         {
             user.Register();
-            OpenUsersPage();
+            MainPageVM.OpenUsersPage();
         }
     }
     private  void Login(object obj)
     {
         if (user.Login())
-            OpenUsersPage();
+            MainPageVM.OpenUsersPage();
         OnPropertyChanged(nameof(LoginResult));
     }
 
     private static void OpenUsersPage()
     {
-        // This method would navigate to another page
+        if(Application.Current != null)
+            Application.Current.MainPage = new AppShell();
     }
 }

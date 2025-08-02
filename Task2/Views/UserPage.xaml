@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Task2.Views.UserPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Task2.ViewModels"
+    Title="UserPage"
+    x:DataType="vm:UserPageVM">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Image
+                Aspect="AspectFit"
+                HeightRequest="200"
+                SemanticProperties.Description="user atributes"
+                Source="{Binding UserImage}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TakePictureCommand}" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label FontSize="20" Text="Tap to take picture" />
+            </HorizontalStackLayout>
+            <BoxView HeightRequest="3" Color="Blue" />
+            <Button
+                Margin="5"
+                Command="{Binding UpdateFromContactCommand}"
+                Text="Update From Contact" />
+            <Grid
+                Padding="5"
+                ColumnDefinitions="*,2*"
+                RowDefinitions="*,*,*,*,*,*,*,*">
+                <Label FontSize="Title" Text="Name" />
+                <Entry
+                    Grid.Column="1"
+                    ClearButtonVisibility="WhileEditing"
+                    FontSize="Title"
+                    Keyboard="Text"
+                    ReturnType="Next"
+                    Text="{Binding Name}" />
+                <Label
+                    Grid.Row="1"
+                    FontSize="Title"
+                    Text="User Name" />
+                <Grid
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    RowDefinitions="*,*">
+                    <Entry
+                        ClearButtonVisibility="WhileEditing"
+                        FontSize="Title"
+                        Keyboard="Text"
+                        ReturnType="Next"
+                        Text="{Binding UserName}" />
+                    <Label
+                        Grid.Row="1"
+                        IsVisible="{Binding HasUserNameError}"
+                        Text="{Binding UserNameErrorMessage}"
+                        TextColor="Red" />
+                </Grid>
+                <Label
+                    Grid.Row="2"
+                    FontSize="Title"
+                    IsVisible="{Binding IsNewUser}"
+                    Text="Email" />
+                <Entry
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    ClearButtonVisibility="WhileEditing"
+                    FontSize="Title"
+                    IsVisible="{Binding IsNewUser}"
+                    Keyboard="Email"
+                    ReturnType="Next"
+                    Text="{Binding Email}" />
+                <Label
+                    Grid.Row="3"
+                    FontSize="Title"
+                    Text="Password" />
+                <Grid
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    RowDefinitions="*,*">
+                    <Entry
+                        ClearButtonVisibility="WhileEditing"
+                        FontSize="Title"
+                        IsPassword="True"
+                        Keyboard="Text"
+                        ReturnType="Done"
+                        Text="{Binding Password}" />
+                    <Label
+                        Grid.Row="1"
+                        IsVisible="{Binding HasUserPwdError}"
+                        Text="{Binding UserPwdErrorMessage}"
+                        TextColor="Red" />
+                </Grid>
+                <Label
+                    Grid.Row="4"
+                    FontSize="Title"
+                    IsVisible="{Binding IsNewUser}"
+                    Text="Birth Date" />
+                <Grid
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    IsVisible="{Binding IsNewUser}"
+                    RowDefinitions="*,*">
+                    <DatePicker
+                        Date="{Binding BirthDate}"
+                        FontSize="Title"
+                        Format="dd/MM/yyyy"
+                        IsVisible="{Binding IsNewUser}" />
+                    <Label
+                        Grid.Row="1"
+                        IsVisible="{Binding HasUserAgeError}"
+                        Text="{Binding Source={x:Static vm:MainPageVM.UserAgeErrorMessage}}"
+                        TextColor="Red" />
+                </Grid>
+                <Label
+                    Grid.Row="5"
+                    FontSize="Title"
+                    IsVisible="{Binding IsNewUser}"
+                    Text="Age" />
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    FontSize="Title"
+                    IsVisible="{Binding IsNewUser}"
+                    Text="{Binding Age}" />
+                <Button
+                    Grid.Row="6"
+                    Grid.ColumnSpan="2"
+                    Margin="0,40,0,0"
+                    Command="{Binding SaveCommand}"
+                    FontSize="Title"
+                    IsEnabled="{Binding IsUserValid}"
+                    Text="Save" />
+                <Label
+                    Grid.Row="7"
+                    Grid.ColumnSpan="2"
+                    Margin="0,20,0,0"
+                    FontSize="Title"
+                    LineBreakMode="WordWrap"
+                    Text="{Binding LoginResult}" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Task2.Views.ProductPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Task2.ViewModels"
+    Title="ProductPage"
+    x:DataType="vm:ProductPageVM">
+    <VerticalStackLayout>
+        <Grid Padding="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="0.5*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label FontSize="Title" Text="Name" />
+            <Entry
+                x:Name="entName"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                FontSize="Title"
+                Keyboard="Text"
+                Text="{Binding Name}" />
+            <Label
+                Grid.Row="1"
+                FontSize="Title"
+                Text="Price" />
+            <Entry
+                x:Name="entPrice"
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                FontSize="Title"
+                Keyboard="Numeric"
+                Text="{Binding Price}" />
+            <Label
+                Grid.Row="2"
+                FontSize="Title"
+                Text="Valid" />
+            <Label
+                x:Name="lblValidDateTime"
+                Grid.Row="2"
+                Grid.Column="1"
+                FontSize="Title"
+                Text="{Binding ValidDateFormated}" />
+
+            <Button
+                x:Name="btnSetValidDate"
+                Grid.Row="2"
+                Grid.Column="2"
+                Command="{Binding SetValidDateCommand}"
+                FontSize="Title"
+                Text="&gt;" />
+        </Grid>
+        <Grid Padding="5" ColumnSpacing="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button
+                x:Name="btnOk"
+                Command="{Binding ProductChangedCommand}"
+                FontSize="Title"
+                Text="Ok" />
+            <Button
+                x:Name="btnCancel"
+                Grid.Column="1"
+                Command="{Binding CancelCommand}"
+                FontSize="Title"
+                Text="Cancel" />
+        </Grid>
+        <Button
+            x:Name="btnDelete"
+            BackgroundColor="Red"
+            Command="{Binding ProductDeletedCommand}"
+            FontSize="Title"
+            HorizontalOptions="Fill"
+            Text="Delete" />
+    </VerticalStackLayout>
+</ContentPage>

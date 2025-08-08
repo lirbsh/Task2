@@ -1,13 +1,58 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Task2.Views.ProductsPage"
-             Title="ProductsPage">
+<ContentPage
+    x:Class="Task2.Views.ProductsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ml="clr-namespace:Task2.ModelsLogic"
+    xmlns:tk="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:Task2.ViewModels"
+    Title="Products"
+    x:DataType="vm:ProductsPageVM">
     <VerticalStackLayout>
-        <Label 
-            Text="Products"
-            FontSize="32"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Button
+            Margin="10"
+            Command="{Binding AddProductCommand}"
+            HorizontalOptions="Fill"
+            Text="Add Product" />
+        <Button
+            Margin="10"
+            Command="{Binding OpenProductCommand}"
+            HorizontalOptions="Fill"
+            Text="Open Selected Product" />
+        <ListView
+            x:Name="lvProducts"
+            ItemsSource="{Binding Products}"
+            SelectedItem="{Binding SelectedProduct}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="ml:Product">
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="1.8*" />
+                                <ColumnDefinition Width="0.7*" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Column="0"
+                                Margin="20,0,0,0"
+                                FontAttributes="Bold"
+                                FontSize="Title"
+                                HorizontalTextAlignment="Start"
+                                Text="{Binding Name}" />
+                            <Label
+                                Grid.Column="1"
+                                FontSize="Title"
+                                Text="{Binding ValidDateFormated}" />
+                            <Label
+                                Grid.Column="2"
+                                FontSize="Title"
+                                HorizontalOptions="Center"
+                                Text="{Binding Price}"
+                                TextColor="Magenta" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </VerticalStackLayout>
 </ContentPage>

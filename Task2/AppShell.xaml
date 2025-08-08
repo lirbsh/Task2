@@ -5,18 +5,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Task2"
     xmlns:views="clr-namespace:Task2.Views"
-    Shell.FlyoutBehavior="Disabled"
-    Title="Task2">
+    Title="Task2"
+    Shell.FlyoutBehavior="Disabled">
 
     <TabBar x:Name="tbMain">
+        <ShellContent
+            Title="Products"
+            ContentTemplate="{DataTemplate views:ProductsPage}"
+            Icon="products.png" />
         <ShellContent
             Title="User"
             ContentTemplate="{DataTemplate views:UserPage}"
             Icon="user.png" />
-        <ShellContent
-        Title="Products"
-        ContentTemplate="{DataTemplate views:ProductsPage}"
-        Icon="products.png" />
+
     </TabBar>
 
 </Shell>

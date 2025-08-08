@@ -11,7 +11,7 @@
             AgeErr = "must be over 18 years old",
             Login = "Login",
             Register = "Register",
-            ContactsPageKey = "/ContactsPage",
+            ProductsPageKey = "/ProductsPage",
             NameKey = "name",
             UserNameKey = "user_name",
             EmailKey = "email", 

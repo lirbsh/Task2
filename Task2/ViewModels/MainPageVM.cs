@@ -1,8 +1,7 @@
-﻿using Task2.Models;
+﻿using System.Windows.Input;
+using Task2.Models;
 using Task2.ModelsLogic;
 using Task2.Utilities;
-using System.Windows.Input;
-using Task2.Views;
 namespace Task2.ViewModels;
 
 internal partial class MainPageVM:ObservableObject

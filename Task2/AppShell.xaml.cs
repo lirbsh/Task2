@@ -9,6 +9,7 @@ namespace Task2
         {
             InitializeComponent();
             Routing.RegisterRoute(Strings.ProductsPageKey, typeof(ProductsPage));
+            Routing.RegisterRoute(Strings.OrdersPageKey, typeof(OrdersPage));
         }
     }
 }

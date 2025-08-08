@@ -8,16 +8,19 @@
     Title="Task2"
     Shell.FlyoutBehavior="Disabled">
 
-    <TabBar x:Name="tbMain">
+    <TabBar>
         <ShellContent
             Title="Products"
             ContentTemplate="{DataTemplate views:ProductsPage}"
             Icon="products.png" />
         <ShellContent
+            Title="Orders"
+            ContentTemplate="{DataTemplate views:OrdersPage}"
+            Icon="order.png" />
+        <ShellContent
             Title="User"
             ContentTemplate="{DataTemplate views:UserPage}"
             Icon="user.png" />
-
     </TabBar>
 
 </Shell>

@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Task2.Views.ProductsPage"
+    x:Class="Task2.Views.OrdersPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ml="clr-namespace:Task2.ModelsLogic"
+    xmlns:ml="clr-namespace:Task2.Models"
     xmlns:vm="clr-namespace:Task2.ViewModels"
-    Title="Products"
-    x:DataType="vm:ProductsPageVM">
+    Title="Orders"
+    x:DataType="vm:OrdersPageVM">
     <VerticalStackLayout>
         <Button
             Margin="10"
-            Command="{Binding AddProductCommand}"
+            Command="{Binding AddOrderCommand}"
             HorizontalOptions="Fill"
-            Text="Add Product" />
+            Text="Add Order" />
         <Button
             Margin="10"
-            Command="{Binding OpenProductCommand}"
+            Command="{Binding OpenOrderCommand}"
             HorizontalOptions="Fill"
-            Text="Open Selected Product" />
+            Text="Open Selected Order" />
         <ListView
-            ItemsSource="{Binding Products}"
-            SelectedItem="{Binding SelectedProduct}">
+            ItemsSource="{Binding Orders}"
+            SelectedItem="{Binding SelectedOrder}">
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="ml:Product">
+                <DataTemplate x:DataType="ml:Order">
                     <ViewCell>
                         <Grid>
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*" />
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="1.8*" />
-                                <ColumnDefinition Width="0.7*" />
                             </Grid.ColumnDefinitions>
                             <Label
                                 Grid.Column="0"
@@ -37,12 +36,9 @@
                                 FontSize="Title"
                                 HorizontalTextAlignment="Start"
                                 Text="{Binding Name}" />
+                            
                             <Label
                                 Grid.Column="1"
-                                FontSize="Title"
-                                Text="{Binding ValidDateFormated}" />
-                            <Label
-                                Grid.Column="2"
                                 FontSize="Title"
                                 HorizontalOptions="Center"
                                 Text="{Binding Price}"

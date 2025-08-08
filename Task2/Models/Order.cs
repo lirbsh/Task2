@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Task2.Models
 {
     [Table("Orders")]
-    internal class Order
+    public class Order
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

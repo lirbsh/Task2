@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Task2.Views.ProductPage"
+    x:Class="Task2.Views.OrderPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:vm="clr-namespace:Task2.ViewModels"
-    Title="ProductPage"
-    x:DataType="vm:ProductPageVM">
+    Title="OrderPage"
+    x:DataType="vm:OrderPageVM">
     <VerticalStackLayout>
         <Grid Padding="5">
             <Grid.ColumnDefinitions>
@@ -36,22 +36,8 @@
                 FontSize="Title"
                 Keyboard="Numeric"
                 Text="{Binding Price}" />
-            <Label
-                Grid.Row="2"
-                FontSize="Title"
-                Text="Valid" />
-            <Label
-                Grid.Row="2"
-                Grid.Column="1"
-                FontSize="Title"
-                Text="{Binding ValidDateFormated}" />
+            
 
-            <Button
-                Grid.Row="2"
-                Grid.Column="2"
-                Command="{Binding SetValidDateCommand}"
-                FontSize="Title"
-                Text="&gt;" />
         </Grid>
         <Grid Padding="5" ColumnSpacing="5">
             <Grid.ColumnDefinitions>
@@ -59,7 +45,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button
-                Command="{Binding ProductChangedCommand}"
+                Command="{Binding OrderChangedCommand}"
                 FontSize="Title"
                 Text="Ok" />
             <Button
@@ -70,7 +56,7 @@
         </Grid>
         <Button
             BackgroundColor="Red"
-            Command="{Binding ProductDeletedCommand}"
+            Command="{Binding OrderDeletedCommand}"
             FontSize="Title"
             HorizontalOptions="Fill"
             Text="Delete" />

@@ -12,6 +12,7 @@
             Login = "Login",
             Register = "Register",
             ProductsPageKey = "/ProductsPage",
+            OrdersPageKey = "/OrdersPage",
             NameKey = "name",
             UserNameKey = "user_name",
             EmailKey = "email", 

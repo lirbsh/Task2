@@ -14,7 +14,7 @@ namespace Task2.Models
         public EventHandler? NameUpdated;
 
         protected readonly Camera camera = new();
-
+        protected readonly SqlUser sqlUser = new ();
         public static string AgeErrorMessage { get => Strings.AgeErr; } //same for all users
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;

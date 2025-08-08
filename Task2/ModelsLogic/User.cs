@@ -99,6 +99,7 @@ namespace Task2.ModelsLogic
             Preferences.Set(Strings.EmailKey, Email);
             Preferences.Set(Strings.RegisteredKey, true);
             Preferences.Set(Strings.ImagePathKey, imagePath);
+            sqlUser.SaveToDatabase(this);
             IsRegistered = true;
         }
 

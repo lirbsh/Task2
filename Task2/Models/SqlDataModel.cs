@@ -9,7 +9,7 @@ using Task2.ModelsLogic;
 
 namespace Task2.Models
 {
-    internal abstract class SqlDataModel
+    public abstract class SqlDataModel
     {
         protected SQLiteConnection? conn;
         protected const string DbName = "sql.data";
@@ -19,6 +19,7 @@ namespace Task2.Models
         public abstract bool Delete(object obj);
         public abstract ObservableCollection<Product> GetProducts();
         public abstract ObservableCollection<Order> GetOrders();
+        public abstract ObservableCollection<SqlUser> GetUsers();
 
     }
 }

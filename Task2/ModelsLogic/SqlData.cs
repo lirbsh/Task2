@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace Task2.ModelsLogic
 {
-    class SqlData:SqlDataModel
+    public class SqlData:SqlDataModel
     {
 
         public SqlData()
@@ -16,6 +16,7 @@ namespace Task2.ModelsLogic
             {
                 conn.CreateTable<Product>();
                 conn.CreateTable<Order>();
+                conn.CreateTable<SqlUser>();
             }
         }
         public override bool Insert(object obj)
@@ -38,7 +39,6 @@ namespace Task2.ModelsLogic
         public override ObservableCollection<Product> GetProducts()
         {
             List<Product> lstProducts = (conn != null) ? [.. conn.Table<Product>()]: [];
-           
             ObservableCollection<Product> ocProducts = [.. lstProducts];
             return ocProducts;
         }
@@ -46,8 +46,14 @@ namespace Task2.ModelsLogic
         public override ObservableCollection<Order> GetOrders()
         {
             List<Order> lstOrders = (conn != null) ? [.. conn.Table<Order>()] : [];
-
             ObservableCollection<Order> ocOrders = [.. lstOrders];
+            return ocOrders;
+        }
+
+        public override ObservableCollection<SqlUser> GetUsers()
+        {
+            List<SqlUser> lstUsers = (conn != null) ? [.. conn.Table<SqlUser>()] : [];
+            ObservableCollection<SqlUser> ocOrders = [.. lstUsers];
             return ocOrders;
         }
     }
